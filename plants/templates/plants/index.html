@@ -1,0 +1,10 @@
+<h1>Plants</h1>
+{% if plants %}
+    <ul>
+    {% for plant in plants %}
+        <li><a href="{% url 'plants:detail' plant.id %}">{{ plant }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No plants are available.</p>
+{% endif %}
