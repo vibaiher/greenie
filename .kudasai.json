@@ -1,6 +1,7 @@
 {
 	"commands": {
 		"db:migrate": "python3 manage.py migrate",
+		"db:migrate:create": "python3 manage.py makemigrations",
 		"start": "python3 manage.py runserver"
 	}
 }
