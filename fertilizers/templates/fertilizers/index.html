@@ -1,0 +1,10 @@
+<h1>Fertilizers</h1>
+{% if fertilizers %}
+    <ul>
+    {% for fertilizer in fertilizers %}
+        <li><a href="{% url 'fertilizers:detail' fertilizer.id %}">{{ fertilizer.name }}</a>, NPK: {{ fertilizer.npk }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No fertilizer are available.</p>
+{% endif %}
