@@ -5,4 +5,26 @@
 <ul>
     <li><b>Alias</b>: {{ plant.alias }}</li>
     <li><b>Acquisition</b>: {{ plant.acquisition_date }}</li>
+    <li><b>Cultivation Plan</b>: 
+        {% if cultivation_plan %}
+            {{ cultivation_plan.name }}
+        {% else %}
+            No plan associated
+        {% endif %}
+    </li>
 </ul>
+
+<h2>Pending Tasks</h2>
+{% if tasks.count > 0 %}
+    <ul>
+    {% for task in tasks.all %}
+        <li>
+            <b>Fertilizer</b>: {{ task.fertilizer.name }} - 
+            <b>Suggested Date</b>: {{ task.suggested_date }}
+            <a href="{% url 'plants:complete_task' plant.id task.id %}">Mark as completed</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No pending tasks for this plant.</p>
+{% endif %}
